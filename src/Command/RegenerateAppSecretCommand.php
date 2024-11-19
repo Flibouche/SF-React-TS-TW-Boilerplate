@@ -35,11 +35,7 @@ class RegenerateAppSecretCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-        $a = '0123456789abcdef';
-        $secret = '';
-        for ($i = 0; $i < 32; $i++) {
-            $secret .= $a[rand(0, 15)];
-        }
+        $secret = bin2hex(random_bytes(16));
 
         $r = shell_exec('sed -i -E "s/^APP_SECRET=.{32}$/APP_SECRET=' . $secret . '/" .env');
 
