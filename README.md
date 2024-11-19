@@ -13,7 +13,7 @@ composer install
 then,
 
 ```bash
-npm run dev
+npm install
 ```
 
 ## Change the APP_SECRET
